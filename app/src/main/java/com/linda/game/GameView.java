@@ -23,9 +23,9 @@ public class GameView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-//        if (happy == null){
-//            happy = new Happy(this);
-//        }
+        if (happy == null){
+            happy = new Happy(this);
+        }
         Log.d("Game", "onDraw: " + getWidth() + "," + getHeight());
         Paint paint = new Paint();
         Paint paint0 = new Paint();
