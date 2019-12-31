@@ -49,11 +49,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.arrow_up:
                 Log.d("MainActivity","onClick : UP");
+                gameView.setPosY(gameView.getPosY()+50);
 //                gameView.posY-=50;
                 gameView.invalidate();
                 break;
             case R.id.arrow_down:
                 Log.d("MainActivity","onClick : DOWN");
+                gameView.setPosY(gameView.getY()-50);
 //                gameView.posY-=50;
                 gameView.invalidate();
                 break;

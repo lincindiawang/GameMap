@@ -48,6 +48,8 @@ public class GameView extends View {
     }
 
     public void setPosY(float posY) {
-        this.posY = posY;
+        if (posY > 0 && posY < getWidth()-100) {
+            this.posY = posY;
+        }
     }
 }
