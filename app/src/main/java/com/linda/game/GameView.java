@@ -13,6 +13,8 @@ import androidx.annotation.Nullable;
 
 public class GameView extends View {
     private float posX, posY = 400;
+    Happy happy;
+
 
     public GameView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
@@ -21,16 +23,47 @@ public class GameView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+//        if (happy == null){
+//            happy = new Happy(this);
+//        }
         Log.d("Game", "onDraw: " + getWidth() + "," + getHeight());
         Paint paint = new Paint();
         Paint paint0 = new Paint();
         paint0.setColor(0);
         canvas.drawLine(400,0, 0,600, paint);
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.monkey);
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.happy);
         canvas.drawBitmap(bitmap, posX, posY, paint);
 //        for (int i=0; i<getHeight()-bitmap.getHeight(); i+=50) {
 //            canvas.drawBitmap(bitmap, 400, 300+i, paint);
 //        }
+    }
+
+    public void moveRight(){
+        if (posX < getWidth()-150){
+            posX = posX +50;
+            invalidate();
+        }
+    }
+
+    public void moveLeft(){
+        if (posX > 50){
+            posX -= 50;
+            invalidate();
+        }
+    }
+
+    public void moveUp(){
+        if (posY > 50){
+            posY = posY - 50;
+            invalidate();
+        }
+    }
+
+    public void moveDown(){
+        if (posY < getHeight()-150){
+            posY = posY +50;
+            invalidate();
+        }
     }
 
     public float getPosX() {
@@ -38,7 +71,7 @@ public class GameView extends View {
     }
 
     public void setPosX(float posX) {
-        if (posX > 0 && posX < getWidth()-100) {
+        if (posX >= 0 && posX < getWidth()-100) {
             this.posX = posX;
         }
     }
